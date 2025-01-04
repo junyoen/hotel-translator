@@ -22,9 +22,25 @@
         <!-- 번역 섹션 -->
         <div class="translation-container">
             <div class="translation-box">
-                <h2>메시지 입력</h2>
+                <h2>한국어 입력</h2>
                 <textarea id="sourceText" rows="4" placeholder="번역할 텍스트를 입력하세요..."></textarea>
-                <div id="google_translate_element"></div>
+                
+                <div class="language-selector">
+                    <h2>번역할 언어 선택</h2>
+                    <select id="targetLang">
+                        <option value="en">영어</option>
+                        <option value="ja">일본어</option>
+                        <option value="zh-CN">중국어</option>
+                        <option value="vi">베트남어</option>
+                        <option value="th">태국어</option>
+                        <option value="ru">러시아어</option>
+                    </select>
+                </div>
+
+                <div class="result-box">
+                    <h2>번역 결과</h2>
+                    <div id="translatedText" class="translated-text"></div>
+                </div>
             </div>
             
             <div class="phrase-box">
@@ -43,20 +59,7 @@
         </div>
     </div>
 
-    <!-- Google 번역 위젯 스크립트 -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ko',
-                includedLanguages: 'en,ja,zh-CN,vi,th,ru,fr,es',
-                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-                autoDisplay: true,
-                multilanguagePage: true
-            }, 'google_translate_element');
-}
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
