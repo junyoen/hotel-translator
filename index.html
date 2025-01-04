@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호텔 번역 인터페이스</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 섹션 -->
+        <header>
+            <h1>호텔 통역 시스템</h1>
+            <div class="quick-buttons">
+                <button onclick="insertPhrase('체크인은 오후 3시부터입니다.')">체크인 안내</button>
+                <button onclick="insertPhrase('체크아웃은 오전 11시까지입니다.')">체크아웃 안내</button>
+                <button onclick="insertPhrase('여권을 보여주시겠습니까?')">여권 요청</button>
+                <button onclick="insertPhrase('무엇을 도와드릴까요?')">기본 인사</button>
+            </div>
+        </header>
+
+        <!-- 메인 번역 섹션 -->
+        <div class="translation-container">
+            <!-- 한국어 번역기 -->
+            <div class="translator-frame">
+                <h2>한국어</h2>
+                <iframe src="https://translate.google.com/?sl=ko&tl=en&op=translate" 
+                        class="translator"></iframe>
+            </div>
+
+            <!-- 외국어 번역기 -->
+            <div class="translator-frame">
+                <h2>외국어</h2>
+                <iframe src="https://translate.google.com/?sl=en&tl=ko&op=translate" 
+                        class="translator"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
