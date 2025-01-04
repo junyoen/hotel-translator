@@ -99,20 +99,31 @@ textarea {
     background-color: #f8f9fa;
 }
 
-/* 구글 번역 위젯 스타일 조정 */
-#google_translate_element {
-    margin-top: 15px;
+/* 언어 선택 및 결과 영역 스타일 */
+.language-selector {
+    margin: 20px 0;
 }
 
-.goog-te-gadget {
-    font-family: Arial, sans-serif !important;
-}
-
-.goog-te-gadget-simple {
-    border: 1px solid #ddd !important;
-    padding: 8px !important;
-    border-radius: 5px !important;
+select {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.result-box {
+    margin-top: 20px;
+}
+
+.translated-text {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    min-height: 100px;
+    white-space: pre-wrap;
+    font-size: 16px;
 }
 
 /* 반응형 디자인 */
@@ -123,5 +134,13 @@ textarea {
     
     .quick-buttons button {
         width: calc(50% - 5px);
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    textarea, .translated-text {
+        font-size: 14px;
     }
 }
