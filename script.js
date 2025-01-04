@@ -15,13 +15,32 @@ function usePhrase(element) {
 }
 
 // 번역 실행 함수
-function translateText() {
-    const iframe = document.querySelector('.goog-te-menu-frame');
-    if (iframe) {
-        const select = iframe.contentDocument.querySelector('.goog-te-menu2');
-        if (select) {
-            select.click();
-        }
+async function translateText() {
+    const text = document.getElementById('sourceText').value;
+    const targetLang = document.getElementById('targetLang').value;
+    const resultDiv = document.getElementById('translatedText');
+
+    if (!text) {
+        resultDiv.innerText = '';
+        return;
+    }
+
+    try {
+        // Google Translate API URL
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+        
+        const response = await axios.get(url);
+        let translatedText = '';
+        
+        // API 응답에서 번역된 텍스트 추출
+        response.data[0].forEach(item => {
+            if (item[0]) translatedText += item[0];
+        });
+
+        resultDiv.innerText = translatedText;
+    } catch (error) {
+        console.error('번역 오류:', error);
+        resultDiv.innerText = '번역 중 오류가 발생했습니다.';
     }
 }
 
@@ -40,4 +59,7 @@ window.onload = function() {
             translateText();
         }
     });
-}
+
+    // 언어 선택 변경 시 번역 실행
+    document.getElementById('targetLang').addEventListener('change', translateText);
+};
