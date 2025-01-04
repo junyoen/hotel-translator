@@ -144,3 +144,37 @@ select {
         font-size: 14px;
     }
 }
+.speech-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.speech-button {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.speech-button:hover {
+    background-color: #1557b0;
+}
+
+.status-box {
+    margin-top: 15px;
+}
+
+.status-indicator {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #666;
+}
